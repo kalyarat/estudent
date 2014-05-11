@@ -11,6 +11,7 @@ try {
 
     //Create a DI
     $di = new Phalcon\DI\FactoryDefault();
+    
     //Setup the database service
     $di->set('db', function(){
     	return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
@@ -21,15 +22,7 @@ try {
     	));
     });
 
-    //Setup the view component
-    $di->set('view', function(){
-        $view = new \Phalcon\Mvc\View();
-        $view->setViewsDir('../app/views/');
-        return $view;
-    });
-
-    	
-    	//Registering Volt as template engine
+      	//Registering Volt as template engine
     	$di->set('view', function() {
     	
     		$view = new \Phalcon\Mvc\View();
@@ -46,7 +39,7 @@ try {
     //Setup a base URI so that all generated URIs include the "tutorial" folder
     $di->set('url', function(){
         $url = new \Phalcon\Mvc\Url();
-        $url->setBaseUri('/tutorial/');
+        $url->setBaseUri('/');
         return $url;
     });
 

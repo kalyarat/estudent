@@ -1,10 +1,8 @@
 
 <?php
-class Users extends \phalcon\Mvc\controller{
-	public function indexAction()
-	{
+class IndexController extends \phalcon\Mvc\Controller{
+	public function IndexAction(){
 		$user = new Users();
-		$this->view->name = "kalyarat";
-		$this->view->items = Users::find();
+			$this->view->items = Users::find();
 	}
 }
